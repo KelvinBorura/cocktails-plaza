@@ -35,7 +35,7 @@ const Cocktail = () => {
     const ingredients = [];
 
     for (let i = 1; i <= 15; i++) {
-      if (drink[`strIngredient${i}`]) {
+      if (drink && drink[`strIngredient${i}`]) {
         ingredients.push(
           <li key={i}>
             {drink[`strMeasure${i}`]} {drink[`strIngredient${i}`]}

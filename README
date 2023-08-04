@@ -1,0 +1,36 @@
+# Cocktail Search App
+
+This is a React app that allows users to search for cocktails by name using an API and view the search results.
+
+## Features
+
+- Users can enter a search query for a cocktail name
+- The app displays search results with related information
+- Users can click on a result to view more details about the selected cocktail
+
+## Install and Run
+
+1. Clone the repository or download the code files
+2. Open a terminal in the project directory
+3. Run `npm install` to install the project dependencies
+4. Run `npm start` to start the development server
+5. Open `http://localhost:3000` in a web browser to view the app
+
+## Built With
+
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Bootstrap](https://getbootstrap.com/) - A popular front-end component library
+- [react-bootstrap](https://react-bootstrap.github.io/) - Bootstrap components built with React
+- [react-router-dom](https://reactrouter.com/) - Declarative routing for React
+
+## Authors
+
+- Crystal Kariuki - [GitHub Profile](https://github.com/blackcrystal0000/cocktails-plaza)
+
+## Acknowledgments
+
+- The CocktailDB API - [Link](http://www.thecocktaildb.com/api/json/v1/1/search.php?s)
+
+## License
+
+- it is licensed by the MIT license.

@@ -12,9 +12,21 @@ const Cocktails = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuery(e.target.elements.search.value);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
+      );
+      setDrinks(response.data.drinks || []);
+    } catch (e) {
+      setError("Failed to fetch drinks.");
+    }
+
+    setIsLoading(false);
   };
 
   const handleCardClick = (id) => {
@@ -56,7 +68,13 @@ const Cocktails = () => {
         <Col>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Control type="text" name="search" placeholder="Search cocktails" />
+              <Form.Control
+                type="text"
+                name="search"
+                placeholder="Search cocktails"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
               Search
