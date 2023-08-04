@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import LoadingSpinner from "./LoadingSpinner";
-import Error from "./Error";
+import LoadingSpinner from "./components/LoadingSpinner"
+import Error from "./components/Error";
 
 const Cocktail = () => {
       const { id } = useParams();
