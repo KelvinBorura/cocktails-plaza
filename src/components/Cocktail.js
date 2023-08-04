@@ -18,7 +18,7 @@ const Cocktail = () => {
 
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=s`
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`
         );
         setDrink(response.data.drinks[0]);
       } catch (e) {
