@@ -37,6 +37,42 @@ const Cocktails = () => {
       e.preventDefault();
       setQuery(e.target.elements.search.value);
     };
-}
+
+    return (
+        <Container>
+          <Row>
+            <Col>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                  <Form.Control type="text" name="search" placeholder="Search cocktails" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Search
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+          {isLoading && <LoadingSpinner />}
+          {error && <Error message={error} />}
+          {drinks.length > 0 && (
+            <Row className="mt-3">
+              {drinks.map((drink) => (
+                <Col md={4} key={drink.idDrink}>
+                  <Card>
+                    <Card.Img variant="top" src={drink.strDrinkThumb} />
+                    <Card.Body>
+                      <Card.Title>{drink.strDrink}</Card.Title>
+                      <Link to={`/cocktails/${drink.idDrink}`} className="btn btn-primary">
+                        Details
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Container>
+      );
+    };
 
 export default Cocktails
