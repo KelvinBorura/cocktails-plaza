@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Cocktails from "./components/Cocktails";
-import Cocktail from "./Cocktail";
+import Cocktail from "./components/Cocktail";
 
 const App = () => {
   return (
