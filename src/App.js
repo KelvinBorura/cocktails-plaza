@@ -1,27 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
 import Cocktails from "./components/Cocktails";
 import Cocktail from "./components/Cocktail";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/cocktails">
-          <Cocktails />
-        </Route>
-        <Route path="/cocktails/:id">
-          <Cocktail />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cocktails" element={<Cocktails />} />
+        <Route path="/cocktails/:id" element={<Cocktail />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
