@@ -43,8 +43,43 @@ const Cocktail = () => {
         return null;
       }
   return (
-    <div>Cocktail</div>
-  )
+    <Container>
+      <Row>
+        <Col md={6}>
+          <Card>
+            <Card.Img variant="top" src={drink.strDrinkThumb} />
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card>
+            <Card.Body>
+              <Card.Title>{drink.strDrink}</Card.Title>
+              <Card.Text>{drink.strInstructions}</Card.Text>
+              <Card.Text>
+                <strong>Category:</strong> {drink.strCategory}
+              </Card.Text>
+              <Card.Text>
+                <strong>Ingredients:</strong>
+              </Card.Text>
+              <ul>
+                {Object.keys(drink)
+                  .filter(
+                    (key) =>
+                      key.startsWith("strIngredient") &&
+                      drink[key] !== null &&
+                      drink[key] !== ""
+                  )
+                  .map((key) => (
+                    <li key={key}>{drink[key]}</li>
+                  ))}
+              </ul>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+  
 }
 
 export default Cocktail
