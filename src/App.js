@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Cocktails from "./components/Cocktails";
 import Cocktail from "./components/Cocktail";
 
@@ -7,12 +7,19 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Cocktails} />
-        <Route path="/cocktails/:id" component={Cocktail} />
-        <Route path="/error">
-          <div>Error! No such page exists.</div>
+        <Route exact path="/">
+          <Home />
         </Route>
-        <Redirect to="/error" />
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/cocktails">
+          <Cocktails />
+        </Route>
+        <Route path="/cocktails/:id">
+          <Cocktail />
+        </Route>
+        <Redirect to="/" />
       </Switch>
     </Router>
   );
