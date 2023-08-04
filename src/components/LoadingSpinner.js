@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Spinner } from "react-bootstrap";
 
-function LoadingSpinner() {
+const LoadingSpinner = () => {
   return (
-    <div>LoadingSpinner</div>
-  )
-}
+    <div className="d-flex justify-content-center my-5">
+      <Spinner animation="border" variant="primary" />
+    </div>
+  );
+};
 
-export default LoadingSpinner
+export default LoadingSpinner;
