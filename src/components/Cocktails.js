@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 import Error from "./Error";
@@ -19,7 +19,7 @@ const Cocktails = () => {
 
     try {
       const response = await axios.get(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`
       );
       setDrinks(response.data.drinks || []);
     } catch (e) {
@@ -63,10 +63,10 @@ const Cocktails = () => {
   };
 
   return (
-    <Container>
+    <Container className="mt-5">
       <Row>
         <Col>
-          <Form onSubmit={handleSubmit}>
+          <Form className="mb-3" onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control
                 type="text"
@@ -82,7 +82,9 @@ const Cocktails = () => {
           </Form>
         </Col>
       </Row>
-      {renderCards()}
+      <Row>
+        {renderCards()}
+      </Row>
     </Container>
   );
 };

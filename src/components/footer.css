@@ -1,0 +1,19 @@
+footer {
+    background-color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .text-muted {
+    text-align: center;
+    color: #999;
+  }
+  
+  .text-primary {
+    color: #007bff;
+  }

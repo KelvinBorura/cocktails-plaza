@@ -18,7 +18,7 @@ const Cocktail = () => {
 
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=`
         );
         setDrink(response.data.drinks[0]);
       } catch (e) {
@@ -60,15 +60,15 @@ const Cocktail = () => {
   }
 
   return (
-    <Container>
+    <Container className="mt-5">
       <Row>
         <Col md={6}>
-          <Card>
+          <Card className="shadow-sm">
             <Card.Img variant="top" src={drink.strDrinkThumb} />
           </Card>
         </Col>
         <Col md={6}>
-          <Card>
+          <Card className="shadow-sm">
             <Card.Body>
               <Card.Title>{drink.strDrink}</Card.Title>
               <Card.Text>{drink.strInstructions}</Card.Text>
