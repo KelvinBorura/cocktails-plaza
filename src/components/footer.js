@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-white py-4">
       <div className="container">
         <p className="text-center text-muted my-2">
-          Made with ❤️ by Crystal Kariuki | © 2021 All rights reserved
+          Made with ❤️ by Crystal Kariuki | © 2023 All rights reserved
         </p>
         <div className="d-flex justify-content-center">
           <a href="https://twitter.com" className="mx-2">
