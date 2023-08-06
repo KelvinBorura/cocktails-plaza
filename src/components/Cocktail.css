@@ -18,3 +18,7 @@
   .card-detail ul li {
     font-size: 1.2rem;
   }
+  .cocktail-container {
+    overflow: hidden;
+  }
+  

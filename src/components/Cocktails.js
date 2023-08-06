@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 import Error from "./Error";
+import './Cocktail.css';
 
 const Cocktails = () => {
   const [query, setQuery] = useState("");
@@ -19,7 +20,7 @@ const Cocktails = () => {
 
     try {
       const response = await axios.get(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
       );
       setDrinks(response.data.drinks || []);
     } catch (e) {
@@ -42,49 +43,54 @@ const Cocktails = () => {
       return <Error message={error} />;
     }
 
-    if (drinks.length === 0) {
+    if (drinks.length === 0 && !isLoading) {
       return <p>No drinks found. Please try again.</p>;
     }
 
     return (
-      <Row className="mt-3">
+      <div className="cocktail-cards"> {/* Added a wrapper div */}
         {drinks.map((drink) => (
-          <Col md={4} key={drink.idDrink}>
-            <Card onClick={() => handleCardClick(drink.idDrink)}>
-              <Card.Img variant="top" src={drink.strDrinkThumb} />
-              <Card.Body>
-                <Card.Title>{drink.strDrink}</Card.Title>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Card
+            key={drink.idDrink}
+            onClick={() => handleCardClick(drink.idDrink)}
+            className="cocktail-card" // Apply styles for inline-block
+          >
+            <Card.Img variant="top" src={drink.strDrinkThumb} />
+            <Card.Body>
+              <Card.Title>{drink.strDrink}</Card.Title>
+            </Card.Body>
+          </Card>
         ))}
-      </Row>
+      </div>
     );
   };
 
   return (
-    <Container className="mt-5">
-      <Row>
-        <Col>
-          <Form className="mb-3" onSubmit={handleSubmit}>
-            <Form.Group>
+    <Container className="cocktail-container" style={{ overflow: 'hidden' }}>
+      <Row className="justify-content-center align-items-center">
+        <Col md={6}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="d-flex">
               <Form.Control
                 type="text"
                 name="search"
                 placeholder="Search cocktails"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                className="mr-2"
+                style={{ width: '20%' }}
               />
-            </Form.Group>
+            
+            </Form.Group><br></br>
             <Button variant="primary" type="submit">
-              Search
-            </Button>
+                Search
+              </Button>
           </Form>
         </Col>
       </Row>
-      <Row>
+      <div style={{ overflow: 'hidden' }}>
         {renderCards()}
-      </Row>
+      </div>
     </Container>
   );
 };

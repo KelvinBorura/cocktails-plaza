@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-4">
-      <div className="container">
+    <footer className="footer">
+      <Container>
         <p className="text-center text-muted my-2">
           Made with ❤️ by Crystal Kariuki | © 2023 All rights reserved
         </p>
@@ -19,7 +20,7 @@ const Footer = () => {
             <i className="fab fa-instagram fa-2x text-primary"></i>
           </a>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };

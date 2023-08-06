@@ -18,9 +18,13 @@ const Cocktail = () => {
 
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
         );
-        setDrink(response.data.drinks[0]);
+        if (response.data.drinks) {
+          setDrink(response.data.drinks[0]);
+        } else {
+          setError("Drink not found.");
+        }
       } catch (e) {
         setError("Failed to fetch drink details.");
       }

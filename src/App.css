@@ -1,5 +1,11 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   text-align: center;
+}
+.content {
+  flex: 1;
 }
 
 .App-logo {
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #6680b4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +41,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: auto; /* Allow vertical scrolling if necessary */
 }

@@ -1,8 +1,12 @@
 import React from "react";
-import { Alert } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap"; // Import Container and Alert from react-bootstrap
 
 const Error = ({ message }) => {
-  return <Alert variant="danger">{message}</Alert>;
+  return (
+    <Container className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+      <Alert variant="danger">{message}</Alert>
+    </Container>
+  );
 };
 
 export default Error;
